@@ -4,11 +4,11 @@ import (
 	"testing"
 
 	"github.com/pkg/errors"
-	fieldparams "github.com/prysmaticlabs/prysm/config/fieldparams"
-	"github.com/prysmaticlabs/prysm/consensus-types/wrapper"
-	enginev1 "github.com/prysmaticlabs/prysm/proto/engine/v1"
-	"github.com/prysmaticlabs/prysm/testing/require"
-	"github.com/prysmaticlabs/prysm/testing/util"
+	fieldparams "github.com/prysmaticlabs/prysm/v3/config/fieldparams"
+	"github.com/prysmaticlabs/prysm/v3/consensus-types/wrapper"
+	enginev1 "github.com/prysmaticlabs/prysm/v3/proto/engine/v1"
+	"github.com/prysmaticlabs/prysm/v3/testing/require"
+	"github.com/prysmaticlabs/prysm/v3/testing/util"
 )
 
 func TestBuildSignedBeaconBlockFromExecutionPayload(t *testing.T) {

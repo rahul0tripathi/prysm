@@ -1,9 +1,9 @@
 package node
 
 import (
-	"github.com/prysmaticlabs/prysm/beacon-chain/blockchain"
-	"github.com/prysmaticlabs/prysm/beacon-chain/builder"
-	"github.com/prysmaticlabs/prysm/beacon-chain/powchain"
+	"github.com/prysmaticlabs/prysm/v3/beacon-chain/blockchain"
+	"github.com/prysmaticlabs/prysm/v3/beacon-chain/builder"
+	"github.com/prysmaticlabs/prysm/v3/beacon-chain/powchain"
 )
 
 // Option for beacon node configuration.

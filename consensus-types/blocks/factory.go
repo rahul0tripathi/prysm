@@ -2,9 +2,9 @@ package blocks
 
 import (
 	"github.com/pkg/errors"
-	"github.com/prysmaticlabs/prysm/consensus-types/interfaces"
-	eth "github.com/prysmaticlabs/prysm/proto/prysm/v1alpha1"
-	"github.com/prysmaticlabs/prysm/runtime/version"
+	"github.com/prysmaticlabs/prysm/v3/consensus-types/interfaces"
+	eth "github.com/prysmaticlabs/prysm/v3/proto/prysm/v1alpha1"
+	"github.com/prysmaticlabs/prysm/v3/runtime/version"
 )
 
 var (

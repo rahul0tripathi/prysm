@@ -8,7 +8,7 @@ go_library(
         "proto.go",
         "types.go",
     ],
-    importpath = "github.com/prysmaticlabs/prysm/consensus-types/blocks",
+    importpath = "github.com/prysmaticlabs/prysm/v3/consensus-types/blocks",
     visibility = ["//visibility:public"],
     deps = [
         "//consensus-types/interfaces:go_default_library",

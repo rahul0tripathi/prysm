@@ -2,8 +2,8 @@ package testing
 
 import (
 	"github.com/pkg/errors"
-	"github.com/prysmaticlabs/prysm/consensus-types/blocks"
-	eth "github.com/prysmaticlabs/prysm/proto/prysm/v1alpha1"
+	"github.com/prysmaticlabs/prysm/v3/consensus-types/blocks"
+	eth "github.com/prysmaticlabs/prysm/v3/proto/prysm/v1alpha1"
 )
 
 // NewSignedBeaconBlockFromGeneric creates a signed beacon block

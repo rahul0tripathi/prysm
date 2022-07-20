@@ -12,7 +12,7 @@ go_library(
         "metadata.go",
         "mutator.go",
     ],
-    importpath = "github.com/prysmaticlabs/prysm/consensus-types/wrapper",
+    importpath = "github.com/prysmaticlabs/prysm/v3/consensus-types/wrapper",
     visibility = ["//visibility:public"],
     deps = [
         "//config/fieldparams:go_default_library",

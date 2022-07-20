@@ -3,12 +3,12 @@ package blocks
 import (
 	"github.com/pkg/errors"
 	ssz "github.com/prysmaticlabs/fastssz"
-	"github.com/prysmaticlabs/prysm/consensus-types/interfaces"
-	types "github.com/prysmaticlabs/prysm/consensus-types/primitives"
-	enginev1 "github.com/prysmaticlabs/prysm/proto/engine/v1"
-	eth "github.com/prysmaticlabs/prysm/proto/prysm/v1alpha1"
-	validatorpb "github.com/prysmaticlabs/prysm/proto/prysm/v1alpha1/validator-client"
-	"github.com/prysmaticlabs/prysm/runtime/version"
+	"github.com/prysmaticlabs/prysm/v3/consensus-types/interfaces"
+	types "github.com/prysmaticlabs/prysm/v3/consensus-types/primitives"
+	enginev1 "github.com/prysmaticlabs/prysm/v3/proto/engine/v1"
+	eth "github.com/prysmaticlabs/prysm/v3/proto/prysm/v1alpha1"
+	validatorpb "github.com/prysmaticlabs/prysm/v3/proto/prysm/v1alpha1/validator-client"
+	"github.com/prysmaticlabs/prysm/v3/runtime/version"
 )
 
 // BeaconBlockIsNil checks if any composite field of input signed beacon block is nil.

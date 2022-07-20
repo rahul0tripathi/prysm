@@ -5,8 +5,8 @@ import (
 	"sort"
 	"testing"
 
-	types "github.com/prysmaticlabs/prysm/consensus-types/primitives"
-	"github.com/prysmaticlabs/prysm/container/slice"
+	types "github.com/prysmaticlabs/prysm/v3/consensus-types/primitives"
+	"github.com/prysmaticlabs/prysm/v3/container/slice"
 )
 
 func TestSubsetUint64(t *testing.T) {
