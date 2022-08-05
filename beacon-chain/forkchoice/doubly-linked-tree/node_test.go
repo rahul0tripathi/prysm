@@ -113,7 +113,7 @@ func TestNode_UpdateBestDescendant_HigherWeightChild(t *testing.T) {
 	s := f.store
 	s.nodeByRoot[indexToHash(1)].weight = 100
 	s.nodeByRoot[indexToHash(2)].weight = 200
-	assert.NoError(t, s.treeRootNode.updateBestDescendant(ctx, 1, 1))
+	assert.NoError(t, s.treeRootNode.updateBestDescendant(ctx, 1, 1, 1))
 
 	assert.Equal(t, 2, len(s.treeRootNode.children))
 	assert.Equal(t, s.treeRootNode.children[1], s.treeRootNode.bestDescendant)
@@ -133,7 +133,7 @@ func TestNode_UpdateBestDescendant_LowerWeightChild(t *testing.T) {
 	s := f.store
 	s.nodeByRoot[indexToHash(1)].weight = 200
 	s.nodeByRoot[indexToHash(2)].weight = 100
-	assert.NoError(t, s.treeRootNode.updateBestDescendant(ctx, 1, 1))
+	assert.NoError(t, s.treeRootNode.updateBestDescendant(ctx, 1, 1, 1))
 
 	assert.Equal(t, 2, len(s.treeRootNode.children))
 	assert.Equal(t, s.treeRootNode.children[0], s.treeRootNode.bestDescendant)
@@ -173,7 +173,7 @@ func TestNode_ViableForHead(t *testing.T) {
 		{&Node{finalizedEpoch: 3, justifiedEpoch: 4}, 4, 3, true},
 	}
 	for _, tc := range tests {
-		got := tc.n.viableForHead(tc.justifiedEpoch, tc.finalizedEpoch)
+		got := tc.n.viableForHead(tc.justifiedEpoch, tc.finalizedEpoch, 5)
 		assert.Equal(t, tc.want, got)
 	}
 }
@@ -197,10 +197,10 @@ func TestNode_LeadsToViableHead(t *testing.T) {
 	require.NoError(t, err)
 	require.NoError(t, f.InsertNode(ctx, state, blkRoot))
 
-	require.Equal(t, true, f.store.treeRootNode.leadsToViableHead(4, 3))
-	require.Equal(t, true, f.store.nodeByRoot[indexToHash(5)].leadsToViableHead(4, 3))
-	require.Equal(t, false, f.store.nodeByRoot[indexToHash(2)].leadsToViableHead(4, 3))
-	require.Equal(t, false, f.store.nodeByRoot[indexToHash(4)].leadsToViableHead(4, 3))
+	require.Equal(t, true, f.store.treeRootNode.leadsToViableHead(4, 3, 5))
+	require.Equal(t, true, f.store.nodeByRoot[indexToHash(5)].leadsToViableHead(4, 3, 5))
+	require.Equal(t, false, f.store.nodeByRoot[indexToHash(2)].leadsToViableHead(4, 3, 5))
+	require.Equal(t, false, f.store.nodeByRoot[indexToHash(4)].leadsToViableHead(4, 3, 5))
 }
 
 func TestNode_SetFullyValidated(t *testing.T) {

@@ -91,8 +91,8 @@ func (s *Store) head(ctx context.Context) ([32]byte, error) {
 	if bestDescendant == nil {
 		bestDescendant = justifiedNode
 	}
-
-	if !bestDescendant.viableForHead(s.justifiedCheckpoint.Epoch, s.finalizedCheckpoint.Epoch) {
+	currentEpoch := slots.EpochsSinceGenesis(time.Unix(int64(s.genesisTime), 0))
+	if !bestDescendant.viableForHead(s.justifiedCheckpoint.Epoch, s.finalizedCheckpoint.Epoch, currentEpoch) {
 		s.allTipsAreInvalid = true
 		return [32]byte{}, fmt.Errorf("head at slot %d with weight %d is not eligible, finalizedEpoch, justified Epoch %d, %d != %d, %d",
 			bestDescendant.slot, bestDescendant.weight/10e9, bestDescendant.finalizedEpoch, bestDescendant.justifiedEpoch, s.finalizedCheckpoint.Epoch, s.justifiedCheckpoint.Epoch)
@@ -167,7 +167,7 @@ func (s *Store) insert(ctx context.Context,
 
 		// Update best descendants
 		if err := s.treeRootNode.updateBestDescendant(ctx,
-			s.justifiedCheckpoint.Epoch, s.finalizedCheckpoint.Epoch); err != nil {
+			s.justifiedCheckpoint.Epoch, s.finalizedCheckpoint.Epoch, slots.ToEpoch(currentSlot)); err != nil {
 			return n, err
 		}
 	}
