@@ -130,6 +130,11 @@ var (
 		Usage:  deprecatedUsage,
 		Hidden: true,
 	}
+	deprecatedEnableForkChoiceDoublyLinkedTree = &cli.BoolFlag{
+		Name:   "enable-forkchoice-doubly-linked-tree",
+		Usage:  deprecatedUsage,
+		Hidden: true,
+	}
 	deprecatedEnablePullTips = &cli.BoolFlag{
 		Name:   "experimental-disable-boundary-checks",
 		Usage:  deprecatedUsage,
@@ -162,4 +167,5 @@ var deprecatedFlags = []cli.Flag{
 	deprecatedEnablePeerScorer,
 	deprecatedEnableGossipBatchAggregation,
 	deprecatedEnablePullTips,
+	deprecatedEnableForkChoiceDoublyLinkedTree,
 }
